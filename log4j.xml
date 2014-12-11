@@ -6,6 +6,7 @@
   <appender name="STDOUT" class="org.apache.log4j.ConsoleAppender">
     <layout class="org.apache.log4j.PatternLayout">
       <param name="ConversionPattern" value="%p %d (%c{1}) %m%n"/>
+      <param name="File" value="/usr/local/fedora/server/logs/fedoragsearch.daily.log"/>
     </layout>
   </appender>
 
