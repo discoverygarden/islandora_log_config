@@ -1,4 +1,4 @@
-islandora_logrotate
+islandora_log_config
 ===================
 
 Rotates the logs created by Islandora, fedora, activemq,  gsearch and tomcat.
