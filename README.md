@@ -14,3 +14,4 @@ file locations default
 
 /usr/local/fedora/tomcat/conf/logging.properties
 
+/usr/local/fedora/tomcat/webapps/adore-djatoka/WEB-INF/classes/log4j.properties
