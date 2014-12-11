@@ -19,3 +19,10 @@ rotate 7
 compress
 missingok
 }
+/usr/local/fedora/data/activemq-data/localhost/KahaDB/*.log {
+copytruncate
+daily
+rotate 7
+compress
+missingok
+}
