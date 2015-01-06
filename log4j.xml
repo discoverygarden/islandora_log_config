@@ -4,9 +4,18 @@
 <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
 
   <appender name="STDOUT" class="org.apache.log4j.ConsoleAppender">
+    <param name="File" value="/usr/local/fedora/server/logs/fedoragsearch.daily.log"/>
     <layout class="org.apache.log4j.PatternLayout">
       <param name="ConversionPattern" value="%p %d (%c{1}) %m%n"/>
-      <param name="File" value="/usr/local/fedora/server/logs/fedoragsearch.daily.log"/>
+    </layout>
+  </appender>
+
+  <appender name="FILEOUT" class="org.apache.log4j.FileAppender">
+    <param name="File" value="/usr/local/fedora/server/logs/fedoragsearch.daily.log"/>
+    <param name="append" value="true" />
+    <param name="threshold" value="debug" />
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%p %d (%c{1}) %m%n"/>
     </layout>
   </appender>
 
@@ -19,7 +28,7 @@
     <level value="DEBUG" />
     <appender-ref ref="FILEOUT"/>
   </logger>
-
+cd
   <logger name="dk.defxws.fgslucene" additivity="false">
     <level value="DEBUG" />
     <appender-ref ref="FILEOUT"/>
