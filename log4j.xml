@@ -28,7 +28,7 @@
     <level value="DEBUG" />
     <appender-ref ref="FILEOUT"/>
   </logger>
-cd
+  
   <logger name="dk.defxws.fgslucene" additivity="false">
     <level value="DEBUG" />
     <appender-ref ref="FILEOUT"/>
