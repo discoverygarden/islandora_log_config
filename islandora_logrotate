@@ -22,11 +22,3 @@ compress
 missingok
 size 1k
 }
-/usr/local/fedora/data/activemq-data/localhost/KahaDB/*.log {
-copytruncate
-daily
-rotate 7
-compress
-missingok
-size 1k
-}
