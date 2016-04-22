@@ -20,22 +20,22 @@
   </appender>
 
   <logger name="dk.defxws.fedoragsearch" additivity="false">
-    <level value="DEBUG" />
+    <level value="INFO" />
     <appender-ref ref="FILEOUT"/>
   </logger>
 
   <logger name="dk.defxws.fgszebra" additivity="false">
-    <level value="DEBUG" />
+    <level value="INFO" />
     <appender-ref ref="FILEOUT"/>
   </logger>
   
   <logger name="dk.defxws.fgslucene" additivity="false">
-    <level value="DEBUG" />
+    <level value="INFO" />
     <appender-ref ref="FILEOUT"/>
   </logger>
 
   <logger name="dk.defxws.fgssolr" additivity="false">
-    <level value="DEBUG" />
+    <level value="INFO" />
     <appender-ref ref="FILEOUT"/>
   </logger>
 
