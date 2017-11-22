@@ -1,7 +1,7 @@
 /usr/local/fedora/tomcat/logs/catalina.out {
 copytruncate
 daily
-rotate 90
+rotate 14
 compress
 missingok
 size 1k
@@ -9,7 +9,7 @@ size 1k
 /usr/local/fedora/tomcat/logs/*.log {
 copytruncate
 daily
-rotate 90
+rotate 14
 compress
 missingok
 size 1k
@@ -17,7 +17,7 @@ size 1k
 /usr/local/fedora/server/logs/*.log {
 copytruncate
 daily
-rotate 90
+rotate 14
 compress
 missingok
 size 1k
