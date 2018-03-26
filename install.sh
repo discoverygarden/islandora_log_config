@@ -10,7 +10,6 @@ fi
 # Create islandora log dir
 if [ ! -d /var/log/islandora ]; then
   mkdir /var/log/islandora
-  checkSafe $? "can't make logging dir"
 fi
 
 # Copy files for Drupal server
