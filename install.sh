@@ -3,7 +3,7 @@
 if [ -z "$SUDO_COMMAND" ]
 then
   echo -e "Only root can run this script.\nRelaunching script with sudo.\n"
-  sudo $0 $*
+  sudo -E $0 $*
   exit
 fi
 
