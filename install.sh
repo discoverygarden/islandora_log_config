@@ -7,6 +7,12 @@ then
   exit
 fi
 
+# Create islandora log dir
+if [ ! -d /var/log/islandora ]; then
+  mkdir /var/log/islandora
+  checkSafe $? "can't make logging dir"
+fi
+
 # Copy files for Drupal server
 if [ -d "/etc/apache2" ] || [ -d "/etc/httpd" ];then
   echo "Copying log configs for a frontend server"

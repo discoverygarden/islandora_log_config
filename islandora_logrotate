@@ -22,3 +22,12 @@ compress
 missingok
 size 1k
 }
+/var/log/islandora/*.log {
+copytruncate
+daily
+rotate 14
+compress
+missingok
+size 1k
+}
+
