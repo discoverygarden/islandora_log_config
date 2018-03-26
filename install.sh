@@ -16,6 +16,7 @@ if [ -d "/etc/apache2" ] || [ -d "/etc/httpd" ];then
   # Create islandora log dir
   if [ ! -d /var/log/islandora ]; then
     mkdir /var/log/islandora
+    chmod 0777 /var/log/islandora
   fi
 else
   echo "Apache does not seem to be installed"
