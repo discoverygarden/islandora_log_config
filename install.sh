@@ -3,15 +3,21 @@
 if [ -z "$SUDO_COMMAND" ]
 then
   echo -e "Only root can run this script.\nRelaunching script with sudo.\n"
-  sudo $0 $*
+  sudo -E $0 $*
   exit
 fi
 
 # Copy files for Drupal server
 if [ -d "/etc/apache2" ] || [ -d "/etc/httpd" ];then
   echo "Copying log configs for a frontend server"
-  cp drupal_syslog /etc/logrotate.d/
-  chmod 644 /etc/logrotate.d/drupal_syslog
+  cp drupal_syslog islandora_log /etc/logrotate.d/
+  chmod 644 /etc/logrotate.d/drupal_syslog /etc/logrotate.d/islandora_log
+
+  # Create islandora log dir
+  if [ ! -d /var/log/islandora ]; then
+    mkdir /var/log/islandora
+    chmod 0777 /var/log/islandora
+  fi
 else
   echo "Apache does not seem to be installed"
   echo "Skipping log configs for frontend servers"
