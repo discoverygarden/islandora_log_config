@@ -5,6 +5,7 @@ rotate 14
 compress
 missingok
 size 1k
+su fedora fedora
 }
 /usr/local/fedora/tomcat/logs/*.log {
 copytruncate
@@ -13,6 +14,7 @@ rotate 14
 compress
 missingok
 size 1k
+su fedora fedora
 }
 /usr/local/fedora/server/logs/*.log {
 copytruncate
@@ -21,4 +23,5 @@ rotate 14
 compress
 missingok
 size 1k
+su fedora fedora
 }
