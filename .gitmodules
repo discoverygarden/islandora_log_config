@@ -1,0 +1,3 @@
+[submodule "fedora_tomcat_conf_sample"]
+	path = fedora_tomcat_conf_sample
+	url = git@github.com:discoverygarden/fedora_tomcat_conf_sample.git
