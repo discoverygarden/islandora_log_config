@@ -7,6 +7,7 @@ Will need to be modified to include microservices and batch ingest.
 The first user who needs this should submit the patch.
 
 General Usage:
+Stop Fedora and other Tomcat services e.g. Blazegraph before running. 
 
 git clone --recursive git@github.com:discoverygarden/islandora_log_config.git
 cd islandora_log_config

@@ -33,9 +33,13 @@ else
     echo "Copying log configs for a backend server with Fedora"
     cp islandora_logrotate /etc/logrotate.d/
     chmod 644 /etc/logrotate.d/islandora_logrotate
+    cp /usr/local/fedora/webapps/fedoragsearch/WEB-INF/classes/log4j.xml /usr/local/fedora/webapps/fedoragsearch/WEB-INF/classes/log4j.backup
     cp log4j.xml          /usr/local/fedora/webapps/fedoragsearch/WEB-INF/classes/log4j.xml
+    cp  /usr/local/fedora/tomcat/conf/logging.properties  /usr/local/fedora/tomcat/conf/logging.backup
     cp logging.properties /usr/local/fedora/tomcat/conf/logging.properties
+    cp /usr/local/fedora/tomcat/conf/server.xml /usr/local/fedora/tomcat/conf/server.backup
     cp fedora_tomcat_conf_sample/server.xml /usr/local/fedora/tomcat/conf/server.xml
+     cp /usr/local/fedora/tomcat/webapps/adore-djatoka/WEB-INF/classes/log4j.properties /usr/local/fedora/tomcat/webapps/adore-djatoka/WEB-INF/classes/log4j.backup
     cp log4j.properties   /usr/local/fedora/tomcat/webapps/adore-djatoka/WEB-INF/classes/log4j.properties
     if [ -d /usr/share/tomcat-blzg/conf ]; then
       echo "Blazegraph has been installed on same server as Fedora"
@@ -48,7 +52,9 @@ else
       echo "Copying log configs for a backend server with Blazegraph"
       cp blazegraph_log /etc/logrotate.d/
       chmod 644 /etc/logrotate.d/blazegraph_log
+      cp /usr/share/tomcat-blzg/conf/logging.properties /usr/share/tomcat-blzg/conf/logging.backup
       cp logging.properties /usr/share/tomcat-blzg/conf/logging.properties
+      cp /usr/share/tomcat-blzg/conf/server.xml /usr/share/tomcat-blzg/conf/server.backup
       cp fedora_tomcat_conf_sample/server.xml /usr/share/tomcat-blzg/conf/server.xml
       sed -i "s|8005|$shutdownc|g" /usr/share/tomcat-blzg/conf/server.xml
       sed -i "s|8009|$ajpc|g" /usr/share/tomcat-blzg/conf/server.xml
@@ -64,7 +70,9 @@ else
       echo "Copying log configs for a backend server with Blazegraph"
       cp blazegraph_log /etc/logrotate.d/
       chmod 644 /etc/logrotate.d/blazegraph_log
+      cp /usr/share/tomcat-blzg/conf/logging.properties /usr/share/tomcat-blzg/conf/logging.backup
       cp logging.properties /usr/share/tomcat-blzg/conf/logging.properties
+      cp /usr/share/tomcat-blzg/conf/server.xml /usr/share/tomcat-blzg/conf/server.backup
       cp fedora_tomcat_conf_sample/server.xml /usr/share/tomcat-blzg/conf/server.xml
       echo "Blazegraph server.xml has been updated with logging changes."
       echo "Require manual service restart of Blazegraph..."
@@ -72,7 +80,9 @@ else
       echo "Copying log configs for a backend server with generic Tomcat"
       cp generic_tomcat_log /etc/logrotate.d/
       chmod 644 /etc/logrotate.d/generic_tomcat_log
+      cp /usr/share/tomcat/conf/logging.properties /usr/share/tomcat/conf/logging.backup
       cp logging.properties /usr/share/tomcat/conf/logging.properties
+      cp /usr/share/tomcat/conf/server.xml /usr/share/tomcat/conf/server.backup
       cp fedora_tomcat_conf_sample/server.xml /usr/share/tomcat/conf/server.xml
       echo "Tomcat server.xml has been updated with logging changes."
       echo "Require manual service restart of Tomcat..."
