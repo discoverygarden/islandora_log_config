@@ -5,7 +5,7 @@ rotate 14
 compress
 missingok
 size 1k
-su blazegraph blazegraph
+su tomcat tomcat
 }
 /usr/share/tomcat/logs/*.log {
 copytruncate
@@ -14,5 +14,5 @@ rotate 14
 compress
 missingok
 size 1k
-su blazegraph blazegraph
+su tomcat tomcat
 }
