@@ -49,7 +49,7 @@ else
       cp blazegraph_log /etc/logrotate.d/
       chmod 644 /etc/logrotate.d/blazegraph_log
       cp logging.properties /usr/share/tomcat-blzg/conf/logging.properties
-      cp fedora_tomcat_conf_sample/non_fedora_server.xml /usr/share/tomcat-blzg/conf/server.xml
+      cp fedora_tomcat_conf_sample/server.xml /usr/share/tomcat-blzg/conf/server.xml
       sed -i "s|8005|$shutdownc|g" /usr/share/tomcat-blzg/conf/server.xml
       sed -i "s|8009|$ajpc|g" /usr/share/tomcat-blzg/conf/server.xml
       sed -i "s|8080|$httpc|g" /usr/share/tomcat-blzg/conf/server.xml
@@ -65,7 +65,7 @@ else
       cp blazegraph_log /etc/logrotate.d/
       chmod 644 /etc/logrotate.d/blazegraph_log
       cp logging.properties /usr/share/tomcat-blzg/conf/logging.properties
-      cp fedora_tomcat_conf_sample/non_fedora_server.xml /usr/share/tomcat-blzg/conf/server.xml
+      cp fedora_tomcat_conf_sample/server.xml /usr/share/tomcat-blzg/conf/server.xml
       echo "Blazegraph server.xml has been updated with logging changes."
       echo "Require manual service restart of Blazegraph..."
     elif [ -d /usr/share/tomcat/conf]; then
@@ -73,7 +73,7 @@ else
       cp generic_tomcat_log /etc/logrotate.d/
       chmod 644 /etc/logrotate.d/generic_tomcat_log
       cp logging.properties /usr/share/tomcat/conf/logging.properties
-      cp fedora_tomcat_conf_sample/non_fedora_server.xml /usr/share/tomcat/conf/server.xml
+      cp fedora_tomcat_conf_sample/server.xml /usr/share/tomcat/conf/server.xml
       echo "Tomcat server.xml has been updated with logging changes."
       echo "Require manual service restart of Tomcat..."
     else 
