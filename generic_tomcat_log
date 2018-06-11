@@ -1,0 +1,18 @@
+/usr/share/tomcat/logs/catalina.out {
+copytruncate
+daily
+rotate 14
+compress
+missingok
+size 1k
+su tomcat tomcat
+}
+/usr/share/tomcat/logs/*.log {
+copytruncate
+daily
+rotate 14
+compress
+missingok
+size 1k
+su tomcat tomcat
+}
