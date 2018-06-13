@@ -14,7 +14,8 @@ gitUpdateTomcatConfFiles()
   echo "Updating fedora_tomcat_conf_sample files"
   if [ -d fedora_tomcat_conf_sample ]; then
     cd fedora_tomcat_conf_sample
-    git pull --force
+    git fetch origin
+    git reset --hard origin/master
     cd ..
   else
     git clone git@github.com:discoverygarden/fedora_tomcat_conf_sample.git
