@@ -58,6 +58,7 @@ fi
 
 tomcatSetup()
 {
+  echo ""
   cp $tomcatConfDir/logging.properties  $tomcatConfDir/logging.backup
   cp logging.properties $tomcatConfDir/logging.properties
   cp $tomcatConfDir/server.xml $tomcatConfDir/server.backup
