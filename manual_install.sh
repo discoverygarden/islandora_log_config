@@ -62,7 +62,7 @@ tomcatSetup()
   cp $tomcatConfDir/server.xml $tomcatConfDir/server.backup
   cp fedora_tomcat_conf_sample/server.xml $tomcatConfDir/server.xml
 
-  if [ "$2" == "fedoraToo"]; then
+  if [ "$2" = "fedoraToo" ]; then
     echo "Blazegraph has been installed on same server as Fedora"
     echo "Please enter desired port numbers that will be used in server.xml"
     read -p "Enter HTTP connector port: [8081]" httpc
