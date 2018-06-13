@@ -1,0 +1,9 @@
+# Mac OS X
+*.DS_Store
+
+# Junk files
+*.swp
+*.swo
+
+fedora_tomcat_conf_sample
+
