@@ -89,7 +89,7 @@ backendSetup()
 
   if [ -d /usr/local/fedora/tomcat/conf ]; then
     logrotateSetup islandora_logrotate "Copying log configs for a backend server with Fedora"
-    tomcatConfdir=/usr/local/fedora/tomcat/conf
+    tomcatConfDir=/usr/local/fedora/tomcat/conf
     cp /usr/local/fedora/tomcat/webapps/fedoragsearch/WEB-INF/classes/log4j.xml /usr/local/fedora/tomcat/webapps/fedoragsearch/WEB-INF/classes/log4j.backup
     cp log4j.xml /usr/local/fedora/tomcat/webapps/fedoragsearch/WEB-INF/classes/log4j.xml
     cp fedora_tomcat_conf_sample/server.xml /usr/local/fedora/tomcat/conf/server.xml
