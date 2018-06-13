@@ -6,7 +6,6 @@ then
   sudo -E $0 $*
   exit
 fi
-
 # {{{ gitUpdateTomcatConfFiles()
 
 gitUpdateTomcatConfFiles()
@@ -64,13 +63,18 @@ tomcatSetup()
   cp $tomcatConfDir/server.xml $tomcatConfDir/server.backup
   cp fedora_tomcat_conf_sample/server.xml $tomcatConfDir/server.xml
 
-  if [ "$2" = "fedoraToo" ]; then
+  if [ "$1" = "fedoraToo" ]; then
     echo "Blazegraph has been installed on same server as Fedora"
     echo "Please enter desired port numbers that will be used in server.xml"
     read -p "Enter HTTP connector port: [8081]" httpc
     read -p "Enter HTTPS connector port: [8444]" httpsc
     read -p "Enter AJP connector port: [8010]" ajpc
     read -p "Enter shutdown port: [8006]" shutdownc
+
+    httpc=${httpc:-8081}
+    httpsc=${httpsc:-8444}
+    ajpc=${ajpc:-8010}
+    shutdownc=${shutdownc:-8005}
 
     sed -i "s|8005|$shutdownc|g" $tomcatConfDir/server.xml
     sed -i "s|8009|$ajpc|g" $tomcatConfDir/server.xml
