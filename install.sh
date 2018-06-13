@@ -49,7 +49,7 @@ if [ -d /usr/local/fedora/tomcat/conf ]; then
   cp fedora_tomcat_conf_sample/server.xml /usr/local/fedora/tomcat/conf/server.xml
   cp /usr/local/fedora/tomcat/webapps/adore-djatoka/WEB-INF/classes/log4j.properties /usr/local/fedora/tomcat/webapps/adore-djatoka/WEB-INF/classes/log4j.backup
   cp log4j.properties /usr/local/fedora/tomcat/webapps/adore-djatoka/WEB-INF/classes/log4j.properties
-  if [ -d /usr/share/tomcat-blzg/conf ]; then
+  if [ -d /usr/share/tomcat-blzg/conf ] || [ -d /usr/local/tomcat-blzg ]; then
     echo "Blazegraph has been installed on same server as Fedora"
     echo "Please enter desired port numbers that will be used in server.xml"
     read -p "Enter HTTP connector port: [8081]" httpc
