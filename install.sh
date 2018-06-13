@@ -23,8 +23,21 @@ else
   echo "Skipping log configs for frontend servers"
 fi
 
+gitUpdateTomcatConfFiles()
+{
+  echo "Updating fedora_tomcat_conf_sample files"
+  if [ -d fedora_tomcat_conf_sample ]; then
+    cd fedora_tomcat_conf_sample
+    git pull --force
+    cd ..
+  else
+    git clone git@github.com:discoverygarden/fedora_tomcat_conf_sample.git
+  fi
+}
+
 # Copy files for backend server
 if [ -d /usr/local/fedora/tomcat/conf ]; then
+  gitUpdateTomcatConfFiles
   echo "Copying log configs for a backend server with Fedora"
   cp islandora_logrotate /etc/logrotate.d/
   chmod 644 /etc/logrotate.d/islandora_logrotate
@@ -61,6 +74,7 @@ if [ -d /usr/local/fedora/tomcat/conf ]; then
   echo "Fedora server.xml has been updated with logging changes."
   echo "Require manual service restart of Fedora..."
 else
+  gitUpdateTomcatConfFiles
   if [ -d /usr/share/tomcat-blzg/conf ]; then
     echo "Copying log configs for a backend server with Blazegraph"
     cp blazegraph_log /etc/logrotate.d/
