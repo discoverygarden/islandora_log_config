@@ -37,20 +37,20 @@ logrotateSetup()
 
 frontendSetup()
 {
-# Copy files for Drupal server
-if [ -d "/etc/apache2" ] || [ -d "/etc/httpd" ];then
-  logrotateSetup drupal_syslog "Copying log configs for a frontend server"
-  logrotateSetup islandora_log
+  # Copy files for Drupal server
+  if [ -d "/etc/apache2" ] || [ -d "/etc/httpd" ];then
+    logrotateSetup drupal_syslog "Copying log configs for a frontend server"
+    logrotateSetup islandora_log
 
-  # Create islandora log dir
-  if [ ! -d /var/log/islandora ]; then
-    mkdir /var/log/islandora
-    chmod 0777 /var/log/islandora
+    # Create islandora log dir
+    if [ ! -d /var/log/islandora ]; then
+      mkdir /var/log/islandora
+      chmod 0777 /var/log/islandora
+    fi
+  else
+    echo "Apache does not seem to be installed"
+    echo "Skipping log configs for frontend servers"
   fi
-else
-  echo "Apache does not seem to be installed"
-  echo "Skipping log configs for frontend servers"
-fi
 }
 
 # }}}
@@ -76,7 +76,6 @@ tomcatSetup()
     sed -i "s|8009|$ajpc|g" $tomcatConfDir/server.xml
     sed -i "s|8080|$httpc|g" $tomcatConfDir/server.xml
     sed -i "s|8443|$httpsc|g" $tomcatConfDir/server.xml
-
   fi
 }
 
