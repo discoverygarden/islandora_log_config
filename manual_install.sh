@@ -27,6 +27,10 @@ gitUpdateTomcatConfFiles()
 logrotateSetup()
 {
   echo "$2"
+  if [ -f /etc/logrotate.d/$1 ]; then
+    echo "$1 already exists backing up to ~. Replacing with updated file"
+    cp /etc/logrotate.d/$1 ~/$1.${DATE}.backup
+  fi
   cp $1 /etc/logrotate.d/
   chmod 644 /etc/logrotate.d/$1
 }
@@ -58,9 +62,9 @@ frontendSetup()
 tomcatSetup()
 {
   echo ""
-  cp $tomcatConfDir/logging.properties  $tomcatConfDir/logging.backup
+  cp $tomcatConfDir/logging.properties  $tomcatConfDir/logging.${DATE}.backup
   cp logging.properties $tomcatConfDir/logging.properties
-  cp $tomcatConfDir/server.xml $tomcatConfDir/server.backup
+  cp $tomcatConfDir/server.xml $tomcatConfDir/server.${DATE}.backup
   cp fedora_tomcat_conf_sample/server.xml $tomcatConfDir/server.xml
 
   if [ "$1" = "fedoraToo" ]; then
