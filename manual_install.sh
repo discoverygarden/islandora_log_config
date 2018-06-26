@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DATE=`date +%Y-%m-%d`
+DATE=`date +%Y-%m-%d-%H-%M-%S`
 
 if [ -z "$SUDO_COMMAND" ]
 then
