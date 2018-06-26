@@ -99,11 +99,15 @@ backendSetup()
   if [ -d /usr/local/fedora/tomcat/conf ]; then
     logrotateSetup islandora_logrotate "Copying log configs for a backend server with Fedora"
     tomcatConfDir=/usr/local/fedora/tomcat/conf
-    cp /usr/local/fedora/tomcat/webapps/fedoragsearch/WEB-INF/classes/log4j.xml /usr/local/fedora/tomcat/webapps/fedoragsearch/WEB-INF/classes/log4j.${DATE}backup
+    cp /usr/local/fedora/tomcat/webapps/fedoragsearch/WEB-INF/classes/log4j.xml /usr/local/fedora/tomcat/webapps/fedoragsearch/WEB-INF/classes/log4j.${DATE}.backup
     cp log4j.xml /usr/local/fedora/tomcat/webapps/fedoragsearch/WEB-INF/classes/log4j.xml
     cp fedora_tomcat_conf_sample/server.xml /usr/local/fedora/tomcat/conf/server.xml
     cp /usr/local/fedora/tomcat/webapps/adore-djatoka/WEB-INF/classes/log4j.properties /usr/local/fedora/tomcat/webapps/adore-djatoka/WEB-INF/classes/log4j.${DATE}.backup
     cp log4j.properties /usr/local/fedora/tomcat/webapps/adore-djatoka/WEB-INF/classes/log4j.properties
+    if [ -d /usr/local/fedora/server/conf ]; then
+      cp /usr/local/fedora/server/conf/logback.xml /usr/local/fedora/server/conf/logback.${DATE}.backup
+      cp logback.xml /usr/local/fedora/server/conf/logback.xml
+    fi
     tomcatSetup
     echo "Fedora server.xml has been updated with logging changes."
     echo "Require manual service restart of Fedora..."
