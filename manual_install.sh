@@ -104,9 +104,9 @@ backendSetup()
     cp fedora_tomcat_conf_sample/server.xml /usr/local/fedora/tomcat/conf/server.xml
     cp /usr/local/fedora/tomcat/webapps/adore-djatoka/WEB-INF/classes/log4j.properties /usr/local/fedora/tomcat/webapps/adore-djatoka/WEB-INF/classes/$DATE.log4j.properties.bak
     cp log4j.properties /usr/local/fedora/tomcat/webapps/adore-djatoka/WEB-INF/classes/log4j.properties
-    if [ -d /usr/local/fedora/server/conf ]; then
-      cp /usr/local/fedora/server/conf/logback.xml /usr/local/fedora/server/conf/$DATE.logback.xml.bak
-      cp logback.xml /usr/local/fedora/server/conf/logback.xml
+    if [ -d /usr/local/fedora/server/config ]; then
+      cp /usr/local/fedora/server/config/logback.xml /usr/local/fedora/server/config/$DATE.logback.xml.bak
+      cp logback.xml /usr/local/fedora/server/config/logback.xml
     fi
     tomcatSetup
     echo "Fedora server.xml has been updated with logging changes."
