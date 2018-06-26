@@ -1,5 +1,7 @@
 #!/bin/bash
 
+DATE=`date +%Y-%m-%d-%H-%M-%S`
+
 if [ -z "$SUDO_COMMAND" ]
 then
   echo -e "Only root can run this script.\nRelaunching script with sudo.\n"
@@ -27,6 +29,10 @@ gitUpdateTomcatConfFiles()
 logrotateSetup()
 {
   echo "$2"
+  if [ -f /etc/logrotate.d/$1 ]; then
+    echo "$1 already exists backing up to ~. Replacing with updated file"
+    cp /etc/logrotate.d/$1 ~/${DATE}.$1.bak
+  fi
   cp $1 /etc/logrotate.d/
   chmod 644 /etc/logrotate.d/$1
 }
@@ -58,9 +64,9 @@ frontendSetup()
 tomcatSetup()
 {
   echo ""
-  cp $tomcatConfDir/logging.properties  $tomcatConfDir/logging.backup
+  cp $tomcatConfDir/logging.properties  $tomcatConfDir/${DATE}.logging.properties.bak
   cp logging.properties $tomcatConfDir/logging.properties
-  cp $tomcatConfDir/server.xml $tomcatConfDir/server.backup
+  cp $tomcatConfDir/server.xml $tomcatConfDir/${DATE}.server.xml.bak
   cp fedora_tomcat_conf_sample/server.xml $tomcatConfDir/server.xml
 
   if [ "$1" = "fedoraToo" ]; then
@@ -93,11 +99,15 @@ backendSetup()
   if [ -d /usr/local/fedora/tomcat/conf ]; then
     logrotateSetup islandora_logrotate "Copying log configs for a backend server with Fedora"
     tomcatConfDir=/usr/local/fedora/tomcat/conf
-    cp /usr/local/fedora/tomcat/webapps/fedoragsearch/WEB-INF/classes/log4j.xml /usr/local/fedora/tomcat/webapps/fedoragsearch/WEB-INF/classes/log4j.backup
+    cp /usr/local/fedora/tomcat/webapps/fedoragsearch/WEB-INF/classes/log4j.xml /usr/local/fedora/tomcat/webapps/fedoragsearch/WEB-INF/classes/${DATE}.log4j.xml.bak
     cp log4j.xml /usr/local/fedora/tomcat/webapps/fedoragsearch/WEB-INF/classes/log4j.xml
     cp fedora_tomcat_conf_sample/server.xml /usr/local/fedora/tomcat/conf/server.xml
-    cp /usr/local/fedora/tomcat/webapps/adore-djatoka/WEB-INF/classes/log4j.properties /usr/local/fedora/tomcat/webapps/adore-djatoka/WEB-INF/classes/log4j.backup
+    cp /usr/local/fedora/tomcat/webapps/adore-djatoka/WEB-INF/classes/log4j.properties /usr/local/fedora/tomcat/webapps/adore-djatoka/WEB-INF/classes/${DATE}.log4j.properties.bak
     cp log4j.properties /usr/local/fedora/tomcat/webapps/adore-djatoka/WEB-INF/classes/log4j.properties
+    if [ -d /usr/local/fedora/server/conf ]; then
+      cp /usr/local/fedora/server/conf/logback.xml /usr/local/fedora/server/conf/${DATE}.logback.xml.bak
+      cp logback.xml /usr/local/fedora/server/conf/logback.xml
+    fi
     tomcatSetup
     echo "Fedora server.xml has been updated with logging changes."
     echo "Require manual service restart of Fedora..."
