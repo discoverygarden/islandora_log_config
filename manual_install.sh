@@ -1,5 +1,7 @@
 #!/bin/bash
 
+DATE=`date +%Y-%m-%d`
+
 if [ -z "$SUDO_COMMAND" ]
 then
   echo -e "Only root can run this script.\nRelaunching script with sudo.\n"
