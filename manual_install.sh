@@ -133,7 +133,7 @@ backendSetup()
       tomcatSetup
       echo "Blazegraph server.xml has been updated with logging changes."
       echo "Require manual service restart of Blazegraph..."
-    elif [ -d /usr/share/tomcat/conf]; then
+    elif [ -d /usr/share/tomcat/conf ]; then
       logrotateSetup generic_tomcat_log "Copying log configs for a backend server with generic Tomcat"
       tomcatConfDir=/usr/share/tomcat/conf
       tomcatSetup
