@@ -80,7 +80,7 @@ tomcatSetup()
     httpc=${httpc:-8081}
     httpsc=${httpsc:-8444}
     ajpc=${ajpc:-8010}
-    shutdownc=${shutdownc:-8005}
+    shutdownc=${shutdownc:-8006}
 
     sed -i "s|8005|$shutdownc|g" $tomcatConfDir/server.xml
     sed -i "s|8009|$ajpc|g" $tomcatConfDir/server.xml
