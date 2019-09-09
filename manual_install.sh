@@ -102,8 +102,10 @@ backendSetup()
     cp /usr/local/fedora/tomcat/webapps/fedoragsearch/WEB-INF/classes/log4j.xml /usr/local/fedora/tomcat/webapps/fedoragsearch/WEB-INF/classes/$DATE.log4j.xml.bak
     cp log4j.xml /usr/local/fedora/tomcat/webapps/fedoragsearch/WEB-INF/classes/log4j.xml
     cp fedora_tomcat_conf_sample/server.xml /usr/local/fedora/tomcat/conf/server.xml
-    cp /usr/local/fedora/tomcat/webapps/adore-djatoka/WEB-INF/classes/log4j.properties /usr/local/fedora/tomcat/webapps/adore-djatoka/WEB-INF/classes/$DATE.log4j.properties.bak
-    cp log4j.properties /usr/local/fedora/tomcat/webapps/adore-djatoka/WEB-INF/classes/log4j.properties
+    if [ -d /usr/local/fedora/tomcat/webapps/adore-djatoka ]; then
+      cp /usr/local/fedora/tomcat/webapps/adore-djatoka/WEB-INF/classes/log4j.properties /usr/local/fedora/tomcat/webapps/adore-djatoka/WEB-INF/classes/$DATE.log4j.properties.bak
+      cp log4j.properties /usr/local/fedora/tomcat/webapps/adore-djatoka/WEB-INF/classes/log4j.properties
+    fi
     if [ -d /usr/local/fedora/server/config ]; then
       cp /usr/local/fedora/server/config/logback.xml /usr/local/fedora/server/config/$DATE.logback.xml.bak
       cp logback.xml /usr/local/fedora/server/config/logback.xml
