@@ -24,11 +24,20 @@
     <appender-ref ref="FILEOUT"/>
   </logger>
 
+  <!-- We use fgssolrremote in some places. Addin this commented out so we
+      can remember to enable this if we are debugging an issue on production.
+
+  <logger name="dk.defxws.fgssolrremote" additivity="false">
+    <level value="DEBUG" />
+    <appender-ref ref="FILEOUT"/>
+  </logger>
+  -->
+
   <logger name="dk.defxws.fgszebra" additivity="false">
     <level value="INFO" />
     <appender-ref ref="FILEOUT"/>
   </logger>
-  
+
   <logger name="dk.defxws.fgslucene" additivity="false">
     <level value="INFO" />
     <appender-ref ref="FILEOUT"/>
