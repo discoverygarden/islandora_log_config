@@ -1,4 +1,4 @@
-/usr/local/fedora/tomcat/logs/catalina.out {
+/usr/share/tomcat/logs/catalina.out {
 copytruncate
 daily
 rotate 14
@@ -7,7 +7,7 @@ missingok
 size 1k
 su fedora fedora
 }
-/usr/local/fedora/tomcat/logs/*.log {
+/usr/share/tomcat/logs/*.log {
 copytruncate
 daily
 rotate 14

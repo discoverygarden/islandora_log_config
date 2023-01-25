@@ -26,8 +26,8 @@ sudo ./manual_install.sh
 * /etc/logrotate.d/blazegraph_log
 * /etc/logrotate.d/drupal_syslog
 * /usr/local/fedora/tomcat/webapps/fedoragsearch/WEB-INF/classes/log4j.xml
-* /usr/local/fedora/tomcat/conf/logging.properties
 * /usr/local/fedora/tomcat/webapps/adore-djatoka/WEB-INF/classes/log4j.properties
 * /usr/local/fedora/server/config/logback.xml
-* /usr/local/fedora/tomcat/conf/server.xml
+* /usr/share/tomcat/conf/logging.properties
+* /usr/share/tomcat/conf/server.xml
 

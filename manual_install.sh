@@ -96,15 +96,15 @@ backendSetup()
 {
   gitUpdateTomcatConfFiles
 
-  if [ -d /usr/local/fedora/tomcat/conf ]; then
+  if [ -d /usr/share/tomcat/conf ]; then
     logrotateSetup islandora_logrotate "Copying log configs for a backend server with Fedora"
-    tomcatConfDir=/usr/local/fedora/tomcat/conf
-    cp /usr/local/fedora/tomcat/webapps/fedoragsearch/WEB-INF/classes/log4j.xml /usr/local/fedora/tomcat/webapps/fedoragsearch/WEB-INF/classes/$DATE.log4j.xml.bak
-    cp log4j.xml /usr/local/fedora/tomcat/webapps/fedoragsearch/WEB-INF/classes/log4j.xml
-    cp fedora_tomcat_conf_sample/server.xml /usr/local/fedora/tomcat/conf/server.xml
-    if [ -d /usr/local/fedora/tomcat/webapps/adore-djatoka ]; then
-      cp /usr/local/fedora/tomcat/webapps/adore-djatoka/WEB-INF/classes/log4j.properties /usr/local/fedora/tomcat/webapps/adore-djatoka/WEB-INF/classes/$DATE.log4j.properties.bak
-      cp log4j.properties /usr/local/fedora/tomcat/webapps/adore-djatoka/WEB-INF/classes/log4j.properties
+    tomcatConfDir=/usr/share/tomcat/conf
+    cp /usr/share/tomcat/webapps/fedoragsearch/WEB-INF/classes/log4j.xml /usr/share/tomcat/webapps/fedoragsearch/WEB-INF/classes/$DATE.log4j.xml.bak
+    cp log4j.xml /usr/share/tomcat/webapps/fedoragsearch/WEB-INF/classes/log4j.xml
+    cp fedora_tomcat_conf_sample/server.xml /usr/share/tomcat/conf/server.xml
+    if [ -d /usr/share/tomcat/webapps/adore-djatoka ]; then
+      cp /usr/share/tomcat/webapps/adore-djatoka/WEB-INF/classes/log4j.properties /usr/share/tomcat/webapps/adore-djatoka/WEB-INF/classes/$DATE.log4j.properties.bak
+      cp log4j.properties /usr/share/tomcat/webapps/adore-djatoka/WEB-INF/classes/log4j.properties
     fi
     if [ -d /usr/local/fedora/server/config ]; then
       cp /usr/local/fedora/server/config/logback.xml /usr/local/fedora/server/config/$DATE.logback.xml.bak
