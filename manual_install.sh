@@ -1,6 +1,12 @@
 #!/bin/bash
 
-DATE=`date +%Y-%m-%d-%H-%M-%S`
+if [ -f "env.sh" ]
+then
+  source env.sh
+else
+  echo -e "Copy default.env.sh to env.sh and set accordingly"
+  exit 1
+fi
 
 if [ -z "$SUDO_COMMAND" ]
 then
@@ -35,6 +41,7 @@ logrotateSetup()
   fi
   cp $1 /etc/logrotate.d/
   chmod 644 /etc/logrotate.d/$1
+  sed -i "s|FEDORAUSER|$FEDORAUSER|g" /etc/logrotate.d/$1
 }
 
 # }}}
