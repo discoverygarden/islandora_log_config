@@ -4,7 +4,7 @@ if [ -f "env.sh" ]
 then
   source env.sh
 else
-  echo -e "${red}Copy default.env.sh to env.sh and set accordingly${NC}"
+  echo -e "Copy default.env.sh to env.sh and set accordingly"
   exit 1
 fi
 
